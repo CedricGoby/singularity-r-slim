@@ -1,0 +1,5 @@
+*.pyc
+.*.swp
+*.notes
+*.simg
+sbatch.sh
