@@ -4,8 +4,8 @@ From: ubuntu:xenial
 	# Texte affiché avec la commande
 	# singularity help Ubuntu-16.04-R-slim.simg
 %help
-	Ubuntu-16.04-R-slim.simg est un container qui execute des scripts R et utilise SLiM
-	
+	Ubuntu-16.04-R-slim.simg est un container qui execute des scripts R et utilise SLiM (https://github.com/CedricGoby/singularity-r-slim)
+		
 	La commande "Rscript" est executée au lancement du container (runscript).
 	A la commande de lancement du container il faut donc ajouter comme argument le chemin (à l'intérieur du container) d'un script R
 	qui sera lancé par "Rscript".
@@ -13,12 +13,13 @@ From: ubuntu:xenial
 	Exemple : singularity run Ubuntu-16.04-R-slim.simg /home/container/scripts/monscript.R --arg1 --arg2
 	
 	Lociciels installés :
-	
 	Ubuntu 16.04 LTS Xenial
 	R version 3.4.4
 	R est installé avec les packages suivants : hierfstat, poppr, inbreedR, genepop, abc, weights, abcrf, tree, hexbin, grid, quantregForest et plyr
 	SLiM 2.6 : https://github.com/MesserLab/SLiM/releases/tag/v2.6
 	
+	La liste détaillée des logiciels se trouve dans le fichier software.versions
+		
 %setup
 
 	# Commande executée au lancement du container
@@ -52,7 +53,7 @@ From: ubuntu:xenial
 	cd SLiM-2.6
 	make slim
 	
-	# Déplacement de l'executable slim
+	# Déplacement de l'exécutable slim
 	cd ..
 	mv SLiM-2.6/bin/slim /usr/bin/
 	
@@ -87,8 +88,3 @@ From: ubuntu:xenial
 
 	# Test executé à la fin de la construction du container
 %test
-	cat /proc/version > software.versions
-	slim -v
-    #~ Rscript --version >> software.versions
-	#~ R --version >> software.versions
-	#~ Rscript -e 'installed.packages()' >> software.versions
