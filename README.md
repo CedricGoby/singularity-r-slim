@@ -9,7 +9,7 @@ Le container exécute des scripts R et utilise SLiM
 Pour construire le container :
 
 ```
-sudo singularity <nomducontainer>.simg Singularity
+sudo singularity build <nomducontainer>.simg Singularity
 ```
 
 Le détail de la construction du container est commenté dans le fichier "Singularity"
